@@ -23,7 +23,3 @@ This project is made with **JavaFX** and the [FreeTTS library](http://freetts.so
 - Let users save the speech as audio files.
 - Add more voice options.
 - Pause and Play functionality
-
-## Contributing
-
-You are welcome to contribute! Fork the project and send pull requests.
