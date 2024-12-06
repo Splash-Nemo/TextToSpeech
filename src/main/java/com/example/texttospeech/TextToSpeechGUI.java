@@ -67,13 +67,23 @@ public class TextToSpeechGUI extends Application {
 
     private static GridPane createSettingGridPane(){
         GridPane gridPane= new GridPane();
+        gridPane.setHgap(10);
+        gridPane.setPadding(new Insets(10, 0, 0, 0));
+
+
         Label voicelabel= new Label("Voice");
         Label rateLabel= new Label("Rate");
         Label volumeLabel= new Label("Volume");
 
+        voicelabel.getStyleClass().add("setting-label");
+        rateLabel.getStyleClass().add("setting-label");
+        volumeLabel.getStyleClass().add("setting-label");
+
         gridPane.add(voicelabel, 0, 0);
         gridPane.add(rateLabel, 1, 0);
         gridPane.add(volumeLabel, 2, 0);
+
+        gridPane.setAlignment(Pos.CENTER);
 
         return gridPane;
     }

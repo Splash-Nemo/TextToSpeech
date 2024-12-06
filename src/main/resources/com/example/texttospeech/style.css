@@ -12,3 +12,8 @@
     -fx-font-size: 16px;
     -fx-control-inner-background: #4F1D1D;
 }
+
+.setting-label{
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
