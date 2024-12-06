@@ -125,10 +125,26 @@ public class TextToSpeechGUI extends Application {
         GridPane.setHalignment(volumeLabel, HPos.CENTER);
 
         voices= new ComboBox<>();
+        voices.getItems().addAll(
+                TextToSpeechController.getVoices()
+        );
+        voices.setValue(voices.getItems().get(0));
         voices.getStyleClass().add("setting-combo-box");
         rates= new ComboBox<>();
+        rates.getItems().addAll(
+                TextToSpeechController.getSpeedRates()
+        );
+
+        rates.setValue(rates.getItems().get(0));
         rates.getStyleClass().add("setting-combo-box");
         volumes= new ComboBox<>();
+
+        volumes.getItems().addAll(
+                TextToSpeechController.getVolumeLevels()
+        );
+
+        volumes.setValue(volumes.getItems().get(5));
+
         volumes.getStyleClass().add("setting-combo-box");
 
         gridPane.add(voices, 0, 1);
