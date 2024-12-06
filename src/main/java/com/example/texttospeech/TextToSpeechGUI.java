@@ -1,6 +1,8 @@
 package com.example.texttospeech;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
@@ -73,6 +75,18 @@ public class TextToSpeechGUI extends Application {
         StackPane speakButtonPane= new StackPane();
         speakButtonPane.setPadding(new Insets(30,10,10,10));
         speakButtonPane.getChildren().add(speakbutton);
+
+        speakbutton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                String msg= textArea.getText();
+                String voice= voices.getValue();
+                String rate= rates.getValue();
+                String volume= volumes.getValue();
+
+                TextToSpeechController.speak(msg, voice, rate, volume);
+            }
+        });
 
         box.getChildren().add(speakButtonPane);
 

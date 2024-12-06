@@ -37,4 +37,20 @@ public class TextToSpeechController {
         }
         return volumeLevels;
     }
+
+    public static void speak(String message, String voiceType, String rate, String volume){
+        Voice voice= voiceManager.getVoice(voiceType);
+        if(voice==null){
+            System.err.println("Voice Not Found");
+            System.exit(1);
+        }
+
+        voice.allocate();
+        voice.setRate(Integer.parseInt(rate));
+        voice.setVolume(Integer.parseInt(volume));
+
+        voice.speak(message);
+
+        voice.deallocate();
+    }
 }
