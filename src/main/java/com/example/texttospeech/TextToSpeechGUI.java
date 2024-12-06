@@ -149,7 +149,7 @@ public class TextToSpeechGUI extends Application {
                 TextToSpeechController.getSpeedRates()
         );
 
-        rates.setValue(rates.getItems().get(0));
+        rates.setValue(rates.getItems().get(1));
         rates.getStyleClass().add("setting-combo-box");
         volumes= new ComboBox<>();
 
