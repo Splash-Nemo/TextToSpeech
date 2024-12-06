@@ -6,9 +6,12 @@ import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -66,7 +69,35 @@ public class TextToSpeechGUI extends Application {
 
         box.getChildren().add(settingsPane);
 
+        Button speakbutton= createImageButton();
+        StackPane speakButtonPane= new StackPane();
+        speakButtonPane.setPadding(new Insets(30,10,10,10));
+        speakButtonPane.getChildren().add(speakbutton);
+
+        box.getChildren().add(speakButtonPane);
+
         return new Scene(box, APP_WIDTH, APP_HEIGHT);
+    }
+
+    private Button createImageButton(){
+        Button speakButton= new Button("Speak");
+
+        speakButton.getStyleClass().add("spk-btn");
+
+        speakButton.setAlignment(Pos.CENTER);
+        speakButton.setMaxWidth(Double.MAX_VALUE);
+
+        ImageView imageView= new ImageView(
+                new Image(
+                        Objects.requireNonNull(getClass().getResourceAsStream("speak.png"))
+                )
+        );
+
+        imageView.setFitHeight(50);
+        imageView.setFitWidth(50);
+        speakButton.setGraphic(imageView);
+
+        return speakButton;
     }
 
     private static GridPane createSettingGridPane(){
