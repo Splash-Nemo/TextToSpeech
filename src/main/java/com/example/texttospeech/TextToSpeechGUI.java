@@ -2,9 +2,11 @@ package com.example.texttospeech;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.GridPane;
@@ -22,6 +24,8 @@ public class TextToSpeechGUI extends Application {
     private static final int APP_HEIGHT= 475;
 
     private TextArea textArea;
+    private static ComboBox<String> voices, rates, volumes;
+
     @Override
     public void start(Stage stage) throws IOException {
         Scene scene = createScene();
@@ -67,7 +71,7 @@ public class TextToSpeechGUI extends Application {
 
     private static GridPane createSettingGridPane(){
         GridPane gridPane= new GridPane();
-        gridPane.setHgap(10);
+        gridPane.setHgap(30);
         gridPane.setPadding(new Insets(10, 0, 0, 0));
 
 
@@ -84,6 +88,21 @@ public class TextToSpeechGUI extends Application {
         gridPane.add(volumeLabel, 2, 0);
 
         gridPane.setAlignment(Pos.CENTER);
+
+        GridPane.setHalignment(voicelabel, HPos.CENTER);
+        GridPane.setHalignment(rateLabel, HPos.CENTER);
+        GridPane.setHalignment(volumeLabel, HPos.CENTER);
+
+        voices= new ComboBox<>();
+        voices.getStyleClass().add("setting-combo-box");
+        rates= new ComboBox<>();
+        rates.getStyleClass().add("setting-combo-box");
+        volumes= new ComboBox<>();
+        volumes.getStyleClass().add("setting-combo-box");
+
+        gridPane.add(voices, 0, 1);
+        gridPane.add(rates, 1, 1);
+        gridPane.add(volumes, 2, 1);
 
         return gridPane;
     }
