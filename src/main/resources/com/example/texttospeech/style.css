@@ -1,0 +1,9 @@
+.body{
+    -fx-background: #D34343;
+}
+
+.text-to-speech-label{
+    -fx-font-size: 25px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px;
+}
