@@ -7,6 +7,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -51,13 +52,30 @@ public class TextToSpeechGUI extends Application {
 
         StackPane textAreaPane= new StackPane();
 
-        textAreaPane.setPadding(new Insets(3, 15, 0, 15));
+        textAreaPane.setPadding(new Insets(0, 15, 0, 15));
         textAreaPane.getChildren().add(textArea);
 
         box.getChildren().add(textToSpeechLabel);
         box.getChildren().add(textAreaPane);
 
+        GridPane settingsPane= createSettingGridPane();
+
+        box.getChildren().add(settingsPane);
+
         return new Scene(box, APP_WIDTH, APP_HEIGHT);
+    }
+
+    private static GridPane createSettingGridPane(){
+        GridPane gridPane= new GridPane();
+        Label voicelabel= new Label("Voice");
+        Label rateLabel= new Label("Rate");
+        Label volumeLabel= new Label("Volume");
+
+        gridPane.add(voicelabel, 0, 0);
+        gridPane.add(rateLabel, 1, 0);
+        gridPane.add(volumeLabel, 2, 0);
+
+        return gridPane;
     }
 
     public static void main(String[] args) {
